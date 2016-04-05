@@ -1,0 +1,10 @@
+.mail-body
+  = render "confirmation_app_user"
+
+  %p= "The #{GeventAnalysis::Application::CONSTS[:app_name]} Team"
+  %p= link_to GeventAnalysis::Application::CONSTS[:app_host], GeventAnalysis::Application::CONSTS[:app_host]
+
+
+:javascript
+  elem=document.getElementById("message_headers");
+  elem.remove();

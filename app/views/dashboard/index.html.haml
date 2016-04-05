@@ -1,0 +1,119 @@
+%section
+  .container-fluid
+    .row
+      .col-md-12{style: "padding:0"}
+        #overlay
+          
+        .card.card--padded.card--collapsible
+          .card__header
+            .card__header__content
+              
+              .row
+                .col-lg-6.col-md-6.col-sm-6
+                  .form-group
+                    .input-group
+                      %input.form-control{type: "text", id: "key", placeholder: "Keyword..."}
+                        %span.input-group-btn
+                          %button.btn.btn-default{type: "button", id: "btn_search"}
+                            %i.fa.fa-search.fa-fw.dd-menu__icon
+
+                .col-lg-6.col-md-6.col-sm-6
+                  .payablebuttons
+                    = link_to "Add User", new_dashboard_user_path, remote: true, class: :"btn btn-primary sm-pull-right btn-add-modal", style: "width:150px;"
+
+          .collapse.in.card__collapse
+            .card__content.card__content--unpadded{style: "padding:20px;"}
+              .table-responsive
+                %table#data_table.table.borderTB.footable{width:"100%", data:{source: dashboard_path(format: :json)}}
+                  %thead.bg_gray
+                    %tr
+                      %th{style:"width:5%"} ID
+                      %th{style:"width:15%"} First Name
+                      %th{style:"width:15%"} Last Name
+                      %th{style:"width:20%"} Email
+                      %th{style:"width:10%"} Last Login
+                      %th{style:"width:15%"} Invited
+                      %th{style:"width:20%"} Gmail
+                  %tbody
+
+              #page_description
+              %a#show_option{href: "javascript://", style: "line-height:82px;"} &nbsp;
+
+/ Modal
+#data_modal.modal.fade{role: :dialog, tabindex: "-1", aria:{hidden: true, labelledby: :data_title}}
+
+
+:javascript 
+  dt_table = $("#data_table").dataTable({
+    sPaginationType: "simple",
+    lengthMenu: [[15, 30, 50], [15, 30, 50]],
+    bJQueryUI: true,
+    bProcessing: true,
+    bServerSide: true,
+    aoColumnDefs: [ { "bSortable": false, "aTargets": [6] } ],
+    sAjaxSource: $('#data_table').data('source'),
+    fnServerParams: function (aoData) {
+      aoData.push({name: "sSearch", value: $("#key").val()});
+    },
+    fnInfoCallback: function( oSettings, iStart, iEnd, iMax, iTotal, sPre ) {
+      var res = iStart +" to "+ iEnd + " of " + iTotal;
+      $("#page_description").html(res);
+      return "";
+    },
+    fnRowCallback: function(nRow, aData, iDisplayIndex){
+      var id = aData[aData.length-1];
+      $(nRow).attr("id",id);
+      return nRow;
+    },oLanguage: {
+      sEmptyTable:"No users registered",
+      oPaginate: {
+        sPrevious: "&larr; Prev",
+        sNext: "Next &rarr;"
+      }
+    },
+    fnDrawCallback: function(oSettings) {
+      if ($("#page_description").siblings(".pager").size() > 0) {
+        $("#page_description").siblings(".pager").remove();
+      }
+      $("#data_table_paginate ul").addClass("pager sm-pull-right").removeClass("pagination").insertBefore($("#page_description"));
+    },
+    responsive: true
+  });
+  
+  $("#data_table").removeClass("no-footer");
+  $("#data_table_filter").css("display", "none");
+  $("#data_table_length").insertAfter($(".payablebuttons")).addClass("form-inline").addClass("pull-right").css("margin-right", "20px");
+  $("select[name='data_table_length']").addClass("form-control");
+
+  $("#data_table_wrapper").find("div.row").css("margin-left", "").css("margin-right", "");
+  $("#data_table_wrapper").children(".row").css("margin-left", "0");
+  $("#data_table_wrapper").children(".row").css("margin-right", "0");
+
+  $("#btn_search").click(function(){
+    dt_table.fnDraw();
+  });
+
+  $("#key").change(function(){
+    dt_table.fnDraw();
+  });
+
+  function send_invite(url) {
+    console.log("url: ")
+    console.log(url)
+    $.ajax({
+      type: "POST",
+      url: url   
+    }).success(function(data) {
+      console.log("X1")
+      console.log(data)
+      $("#popup_modal_title").text("Send Invitation");
+      $("#popup_modal_box .message").html("<p>"+ data.success.msg +"</p>");
+      $("#popup_modal_box").modal("show");
+    }).fail(function(data) {
+      console.log("X2")
+      console.log(data)
+      $("#popup_modal_title").text("Send Invitation");
+      $("#popup_modal_box .message").html("<p>Sending invitation failed.</p>");
+      $("#popup_modal_box").modal("show");
+    });
+  }

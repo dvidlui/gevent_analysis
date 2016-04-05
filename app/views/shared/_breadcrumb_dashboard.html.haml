@@ -1,0 +1,7 @@
+- user = current_user
+- if params[:controller].include?("dashboard/users") && params[:action] == "edit"
+  %li= link_to "Dashboard:Users", dashboard_path
+  %li.active{data:{root_label: "Dashboard"}}= "User ID: #{@user.id}"
+
+- elsif params[:controller] == "dashboard"
+  %li.active{data:{root_label: "Dashboard"}} Dashboard:Users

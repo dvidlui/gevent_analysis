@@ -1,0 +1,34 @@
+!!!
+%html
+  %head
+    %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+  %body      
+    .mail-body
+      %section
+        .container-fluid
+          .row
+            .col-md-12{style: "padding:0"}
+              #overlay
+
+              .card.card--padded.card--collapsible
+                .card__header
+                  .card__header__content
+
+                    - if @analysis_results.present?
+                      %h2 Analysis results from the events of the next week
+                      %ul
+                      - @analysis_results.each do |rule|
+                        %li
+                          = rule[:title]
+                          %p= rule[:answer]
+                    - else
+                      %label You have no any events planned next week.
+
+        
+    %p= "The #{GeventAnalysis::Application::CONSTS[:app_name]} Team"
+    %p= link_to GeventAnalysis::Application::CONSTS[:app_host], GeventAnalysis::Application::CONSTS[:app_host]
+
+
+:javascript
+  elem=document.getElementById("message_headers");
+  elem.remove();

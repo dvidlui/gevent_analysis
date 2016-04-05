@@ -1,0 +1,110 @@
+- user = current_user
+%section
+  .container-fluid
+    .row
+      .col-md-12{style: "padding:0"}
+        #overlay
+
+        .card.card--padded.card--collapsible
+          .card__header
+            .card__header__content
+
+              - if user.has_no_source?
+                %label Please connect your gmail to fetch events from your google calendar for analysis.
+                = link_to "Link Google", user_omniauth_authorize_path(:google_oauth2), class: "btn btn-primary"
+
+              - if @analysis_results.present?
+                %h2 Analysis results from the events of the next week
+                %ul
+                - @analysis_results.each do |rule|
+                  %li
+                    = rule[:title]
+                    %p= rule[:answer]
+
+              %hr/
+              %h2 Next Week Events
+              .row
+                .col-lg-6.col-md-6.col-sm-6
+                  .form-group
+                    .input-group
+                      %input.form-control{type: "text", id: "key", placeholder: "Keyword..."}
+                        %span.input-group-btn
+                          %button.btn.btn-default{type: "button", id: "btn_search"}
+                            %i.fa.fa-search.fa-fw.dd-menu__icon
+
+                .col-lg-6.col-md-6.col-sm-6
+                  .payablebuttons
+
+          .collapse.in.card__collapse
+            .card__content.card__content--unpadded{style: "padding:20px;"}
+              .table-responsive
+                %table#data_table.table.borderTB.footable{width:"100%", data:{source: userboard_path(format: :json)}}
+                  %thead.bg_gray
+                    %tr
+                      %th{style:"width:30%"} Title
+                      %th{style:"width:10%"} Creator
+                      %th{style:"width:10%"} Start
+                      %th{style:"width:10%"} End
+                      %th{style:"width:30%"} Attendees
+                  %tbody
+
+              #page_description
+              %a#show_option{href: "javascript://", style: "line-height:82px;"} &nbsp;
+
+/ Modal
+#data_modal.modal.fade{role: :dialog, tabindex: "-1", aria:{hidden: true, labelledby: :data_title}}
+
+
+:javascript 
+  dt_table = $("#data_table").dataTable({
+    sPaginationType: "simple",
+    lengthMenu: [[15, 30, 50], [15, 30, 50]],
+    bJQueryUI: true,
+    bProcessing: true,
+    bServerSide: true,
+    aoColumnDefs: [ { "bSortable": false, "aTargets": [4] } ],
+    sAjaxSource: $('#data_table').data('source'),
+    fnServerParams: function (aoData) {
+      aoData.push({name: "sSearch", value: $("#key").val()});
+    },
+    fnInfoCallback: function( oSettings, iStart, iEnd, iMax, iTotal, sPre ) {
+      var res = iStart +" to "+ iEnd + " of " + iTotal;
+      $("#page_description").html(res);
+      return "";
+    },
+    fnRowCallback: function(nRow, aData, iDisplayIndex){
+      var id = aData[aData.length-1];
+      $(nRow).attr("id",id);
+      return nRow;
+    },oLanguage: {
+      sEmptyTable:"No events",
+      oPaginate: {
+        sPrevious: "&larr; Prev",
+        sNext: "Next &rarr;"
+      }
+    },
+    fnDrawCallback: function(oSettings) {
+      if ($("#page_description").siblings(".pager").size() > 0) {
+        $("#page_description").siblings(".pager").remove();
+      }
+      $("#data_table_paginate ul").addClass("pager sm-pull-right").removeClass("pagination").insertBefore($("#page_description"));
+    },
+    responsive: true
+  });
+  
+  $("#data_table").removeClass("no-footer");
+  $("#data_table_filter").css("display", "none");
+  $("#data_table_length").insertAfter($(".payablebuttons")).addClass("form-inline").addClass("pull-right").css("margin-right", "20px");
+  $("select[name='data_table_length']").addClass("form-control");
+
+  $("#data_table_wrapper").find("div.row").css("margin-left", "").css("margin-right", "");
+  $("#data_table_wrapper").children(".row").css("margin-left", "0");
+  $("#data_table_wrapper").children(".row").css("margin-right", "0");
+
+  $("#btn_search").click(function(){
+    dt_table.fnDraw();
+  });
+
+  $("#key").change(function(){
+    dt_table.fnDraw();
+  });

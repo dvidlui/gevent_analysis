@@ -1,0 +1,52 @@
+%section
+  .container-fluid
+    .row
+      .col-md-12
+        #overlay
+
+        .row
+          - if params[:type].present?
+            .alert.alert-success{style: "background-color:#f06d22; color:white; margin-top: 20px;"}
+              #flash_notice 
+                %h4{style: "margin-bottom:0;font-size:18px;"} You must complete your profile before you can proceed.
+
+          .col-sm-6{style: "padding:0", class: :"#{params[:type].present? ? 'col-md-6' : 'col-md-12'}"}
+            = form_for @user, url: update_profile_dashboard_users_path, html:{class: :"form-virtical parsley-form edit-form", :"data-parsley-validate"=>''} do |f|
+              .card.card--padded{data: {:"match-height"=>"card"}}
+                .collapse.in.card__collapse
+                  .card__content{data: {:"match-height"=>"card__content"}}
+                    - if @user.errors.any?
+                      %ul{style: "list-style:none;color:red;padding-left:0"}
+                        - @user.errors.full_messages.each do |msg|
+                          %li= msg
+                    .row
+                      .col-md-12.col-sm-12
+                        .form-group
+                          = f.label :first_name, "First Name"
+                          = f.text_field :first_name, placeholder: "John", class: :"form-control", required:true
+                        .form-group
+                          = f.label :last_name, "Last Name"
+                          = f.text_field :last_name, placeholder: "Smith", class: :"form-control", required:true
+                        %br/
+                        .form-group{class: :"#{@user.errors.messages.to_s.include?('email') ? 'has-error' : ''}"}
+                          = f.label :email, "Email Address"
+                          = f.email_field :email, placeholder: "new.user@example.com", class: :"form-control", :"data-parsley-trigger"=>"change", required: true, disabled: true
+                          = hidden_field_tag :user_id, @user.id.to_s
+
+                        - if current_user == @user
+                          .form-group
+                            = f.label :password, "Password"
+                            = f.password_field :password, class: :"form-control", placeholder: "Minimum 8 chars, letters and numbers", required:true, :"data-parsley-minlength"=>"8"
+                          .form-group
+                            = f.label :password_confirmation, "Confirmation Password"
+                            = f.password_field :password_confirmation, class: :"form-control", placeholder: "Minimum 8 chars, letters and numbers", required:true, :"data-parsley-minlength"=>"8", :"data-parsley-equalto"=>"#user_password"
+
+                        = f.submit "Save Changes", class: :"btn btn-primary update-user"
+
+          - if params[:type].present?
+            .col-md-6.col-sm-6      
+              %h2= "Welcome to #{GeventAnalysis::Application::CONSTS[:app_name]}!"
+
+
+:javascript
+  $(".parsley-form").parsley("validate")

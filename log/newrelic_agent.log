@@ -1,0 +1,64 @@
+# Logfile created on 2016-04-05 10:00:21 +0800 by logger.rb/44203
+[04/05/16 10:00:21 +0800 Davids-Mac-mini.local (1455)] INFO : Starting the New Relic agent in "development" environment.
+[04/05/16 10:00:21 +0800 Davids-Mac-mini.local (1455)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[04/05/16 10:00:21 +0800 Davids-Mac-mini.local (1455)] WARN : No configuration file found. Working directory = /Volumes/Work/zNode/aBunchProject/gevent-analysis
+[04/05/16 10:00:21 +0800 Davids-Mac-mini.local (1455)] WARN : Looked in these locations (based on defaults): /Volumes/Work/zNode/aBunchProject/gevent-analysis/config/newrelic.yml, /Volumes/Work/zNode/aBunchProject/gevent-analysis/newrelic.yml, /Volumes/Work/zNode/aBunchProject/gevent-analysis/config/newrelic.yml, /Volumes/Work/zNode/aBunchProject/gevent-analysis/newrelic.yml, /Users/david/.newrelic/newrelic.yml, /Users/david/newrelic.yml
+[04/05/16 10:00:21 +0800 Davids-Mac-mini.local (1455)] INFO : Environment: development
+[04/05/16 10:00:21 +0800 Davids-Mac-mini.local (1455)] INFO : Dispatcher: webrick
+[04/05/16 10:00:21 +0800 Davids-Mac-mini.local (1455)] INFO : Application: development
+[04/05/16 10:00:21 +0800 Davids-Mac-mini.local (1455)] WARN : No license key found. This often means your newrelic.yml file was not found, or it lacks a section for the running environment, 'development'. You may also want to try linting your newrelic.yml to ensure it is valid YML.
+[04/05/16 10:00:21 +0800 Davids-Mac-mini.local (1455)] INFO : Installing ActiveRecord 4 instrumentation
+[04/05/16 10:00:21 +0800 Davids-Mac-mini.local (1455)] INFO : Installing DelayedJob instrumentation [part 1/2]
+[04/05/16 10:00:21 +0800 Davids-Mac-mini.local (1455)] INFO : Installing New Relic supported Grape instrumentation
+[04/05/16 10:00:21 +0800 Davids-Mac-mini.local (1455)] INFO : Installing Net instrumentation
+[04/05/16 10:00:21 +0800 Davids-Mac-mini.local (1455)] INFO : Installing deferred Rack instrumentation
+[04/05/16 10:00:21 +0800 Davids-Mac-mini.local (1455)] INFO : Installing Rack::Builder middleware instrumentation
+[04/05/16 10:00:21 +0800 Davids-Mac-mini.local (1455)] INFO : Installing Rails 3+ middleware instrumentation
+[04/05/16 10:00:21 +0800 Davids-Mac-mini.local (1455)] INFO : Installing Rails 4 Controller instrumentation
+[04/05/16 10:00:21 +0800 Davids-Mac-mini.local (1455)] INFO : Installing Rails 4 view instrumentation
+[04/05/16 10:00:21 +0800 Davids-Mac-mini.local (1455)] INFO : Installing Rails 4 Error instrumentation
+[04/05/16 10:00:21 +0800 Davids-Mac-mini.local (1455)] INFO : Finished instrumentation
+[04/05/16 10:02:11 +0800 Davids-Mac-mini.local (1518)] INFO : Starting the New Relic agent in "development" environment.
+[04/05/16 10:02:11 +0800 Davids-Mac-mini.local (1518)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[04/05/16 10:02:11 +0800 Davids-Mac-mini.local (1518)] WARN : No configuration file found. Working directory = /Volumes/Work/zNode/aBunchProject/gevent-analysis
+[04/05/16 10:02:11 +0800 Davids-Mac-mini.local (1518)] WARN : Looked in these locations (based on defaults): /Volumes/Work/zNode/aBunchProject/gevent-analysis/config/newrelic.yml, /Volumes/Work/zNode/aBunchProject/gevent-analysis/newrelic.yml, /Volumes/Work/zNode/aBunchProject/gevent-analysis/config/newrelic.yml, /Volumes/Work/zNode/aBunchProject/gevent-analysis/newrelic.yml, /Users/david/.newrelic/newrelic.yml, /Users/david/newrelic.yml
+[04/05/16 10:02:11 +0800 Davids-Mac-mini.local (1518)] INFO : Environment: development
+[04/05/16 10:02:11 +0800 Davids-Mac-mini.local (1518)] INFO : Dispatcher: webrick
+[04/05/16 10:02:11 +0800 Davids-Mac-mini.local (1518)] INFO : Application: development
+[04/05/16 10:02:11 +0800 Davids-Mac-mini.local (1518)] WARN : No license key found. This often means your newrelic.yml file was not found, or it lacks a section for the running environment, 'development'. You may also want to try linting your newrelic.yml to ensure it is valid YML.
+[04/05/16 10:02:11 +0800 Davids-Mac-mini.local (1518)] INFO : Installing ActiveRecord 4 instrumentation
+[04/05/16 10:02:11 +0800 Davids-Mac-mini.local (1518)] INFO : Installing DelayedJob instrumentation [part 1/2]
+[04/05/16 10:02:11 +0800 Davids-Mac-mini.local (1518)] INFO : Installing New Relic supported Grape instrumentation
+[04/05/16 10:02:11 +0800 Davids-Mac-mini.local (1518)] INFO : Installing Net instrumentation
+[04/05/16 10:02:11 +0800 Davids-Mac-mini.local (1518)] INFO : Installing deferred Rack instrumentation
+[04/05/16 10:02:11 +0800 Davids-Mac-mini.local (1518)] INFO : Installing Rack::Builder middleware instrumentation
+[04/05/16 10:02:11 +0800 Davids-Mac-mini.local (1518)] INFO : Installing Rails 3+ middleware instrumentation
+[04/05/16 10:02:11 +0800 Davids-Mac-mini.local (1518)] INFO : Installing Rails 4 Controller instrumentation
+[04/05/16 10:02:11 +0800 Davids-Mac-mini.local (1518)] INFO : Installing Rails 4 view instrumentation
+[04/05/16 10:02:11 +0800 Davids-Mac-mini.local (1518)] INFO : Installing Rails 4 Error instrumentation
+[04/05/16 10:02:11 +0800 Davids-Mac-mini.local (1518)] INFO : Finished instrumentation
+[04/05/16 10:02:11 +0800 Davids-Mac-mini.local (1518)] INFO : Doing deferred dependency-detection before Rack startup
+[04/05/16 10:02:20 +0800 Davids-Mac-mini.local (1518)] INFO : delayed_job not available: No DJ worker present. Skipping DJ queue sampler
+[04/05/16 10:02:27 +0800 Davids-Mac-mini.local (1518)] ERROR : Invalid license key, please contact support@newrelic.com
+[04/05/16 10:02:27 +0800 Davids-Mac-mini.local (1518)] ERROR : Visit NewRelic.com to obtain a valid license key, or to upgrade your account.
+[04/05/16 10:10:06 +0800 Davids-Mac-mini.local (1518)] INFO : Starting Agent shutdown
+[04/05/16 10:15:16 +0800 Davids-Mac-mini.local (1879)] INFO : Starting the New Relic agent in "development" environment.
+[04/05/16 10:15:16 +0800 Davids-Mac-mini.local (1879)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[04/05/16 10:15:16 +0800 Davids-Mac-mini.local (1879)] WARN : No configuration file found. Working directory = /Volumes/Work/zNode/aBunchProject/gevent-analysis
+[04/05/16 10:15:16 +0800 Davids-Mac-mini.local (1879)] WARN : Looked in these locations (based on defaults): /Volumes/Work/zNode/aBunchProject/gevent-analysis/config/newrelic.yml, /Volumes/Work/zNode/aBunchProject/gevent-analysis/newrelic.yml, /Volumes/Work/zNode/aBunchProject/gevent-analysis/config/newrelic.yml, /Volumes/Work/zNode/aBunchProject/gevent-analysis/newrelic.yml, /Users/david/.newrelic/newrelic.yml, /Users/david/newrelic.yml
+[04/05/16 10:15:16 +0800 Davids-Mac-mini.local (1879)] INFO : Environment: development
+[04/05/16 10:15:16 +0800 Davids-Mac-mini.local (1879)] INFO : Dispatcher: webrick
+[04/05/16 10:15:16 +0800 Davids-Mac-mini.local (1879)] INFO : Application: development
+[04/05/16 10:15:16 +0800 Davids-Mac-mini.local (1879)] WARN : No license key found. This often means your newrelic.yml file was not found, or it lacks a section for the running environment, 'development'. You may also want to try linting your newrelic.yml to ensure it is valid YML.
+[04/05/16 10:15:16 +0800 Davids-Mac-mini.local (1879)] INFO : Installing ActiveRecord 4 instrumentation
+[04/05/16 10:15:16 +0800 Davids-Mac-mini.local (1879)] INFO : Installing DelayedJob instrumentation [part 1/2]
+[04/05/16 10:15:16 +0800 Davids-Mac-mini.local (1879)] INFO : Installing New Relic supported Grape instrumentation
+[04/05/16 10:15:16 +0800 Davids-Mac-mini.local (1879)] INFO : Installing Net instrumentation
+[04/05/16 10:15:16 +0800 Davids-Mac-mini.local (1879)] INFO : Installing deferred Rack instrumentation
+[04/05/16 10:15:16 +0800 Davids-Mac-mini.local (1879)] INFO : Installing Rack::Builder middleware instrumentation
+[04/05/16 10:15:16 +0800 Davids-Mac-mini.local (1879)] INFO : Installing Rails 3+ middleware instrumentation
+[04/05/16 10:15:16 +0800 Davids-Mac-mini.local (1879)] INFO : Installing Rails 4 Controller instrumentation
+[04/05/16 10:15:16 +0800 Davids-Mac-mini.local (1879)] INFO : Installing Rails 4 view instrumentation
+[04/05/16 10:15:16 +0800 Davids-Mac-mini.local (1879)] INFO : Installing Rails 4 Error instrumentation
+[04/05/16 10:15:16 +0800 Davids-Mac-mini.local (1879)] INFO : Finished instrumentation
+[04/05/16 10:15:16 +0800 Davids-Mac-mini.local (1879)] INFO : Doing deferred dependency-detection before Rack startup

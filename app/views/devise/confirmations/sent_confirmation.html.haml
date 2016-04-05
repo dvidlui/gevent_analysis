@@ -1,0 +1,7 @@
+.row{style:"margin:0"}
+  .col-md-6.col-md-offset-3
+    %h2 Link has been resent
+    %p= t("devise.confirmations.send_paranoid_instructions")
+    %p If your link does not arrive within a few minutes, please check your spam or bulk email folder.
+
+    = link_to "Request another invitation link", new_user_confirmation_path

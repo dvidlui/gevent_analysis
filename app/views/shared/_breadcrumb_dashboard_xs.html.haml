@@ -1,0 +1,7 @@
+%li.dropdown
+  %span#dropLogin{data:{toggle:"dropdown"}} 
+    %label.caption
+      - if params[:controller].include?("dashboard/users") && params[:action] == "profile"
+        Dashboard: Profile
+      - elsif params[:controller] == "dashboard"
+        Dashboard:Users

@@ -1,0 +1,3 @@
+- user = current_user
+%li{class: "#{params[:controller]=='dashboard' ? 'active' : ''}"}
+  = link_to "<i class='fa fa-users fa-fw dd-menu__icon'></i>Users".html_safe, "#users", data:{url: dashboard_path + ajax_url_suffix}, class: :"event-button"

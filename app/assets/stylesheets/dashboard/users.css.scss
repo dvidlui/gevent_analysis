@@ -1,0 +1,33 @@
+/*
+  Place all the styles related to the matching controller here.
+  They will automatically be included in application.css.
+*/
+
+.users {
+  .blank {
+    height:5px;
+  }
+
+  .line {
+    margin:0 0 10px;
+    height:1px;
+    border:1px solid #000;
+  }
+
+  .block {
+    margin:0 0 20px;
+  }  
+}
+
+#right_main_content {
+  table.dataTable {
+    thead {
+      tr {
+        th {
+          padding-left: 9px;
+          padding-right: 9px;
+        }        
+      }
+    }
+  }
+}

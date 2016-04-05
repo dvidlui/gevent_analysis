@@ -1,0 +1,59 @@
+%section
+  .container-fluid
+    .row
+      .col-md-12{style: "padding:0"}
+        #overlay
+
+        = form_for(@user, url: dashboard_user_path, remote: true, html:{class: :"form-vertical parsley-form edit-user"}) do |f|
+          .card.card--padded{data: {:"match-height"=>"card"}}
+            .collapse.in.card__collapse
+              .card__content{data: {:"match-height"=>"card__content"}}
+                %fieldset.fieldset
+                  .row
+                    .col-md-12.col-sm-12
+                      .form-group
+                        = f.label :email, "Email Address"
+                        = f.email_field :email, placeholder: "new.user@example.com", class: :"form-control", :"data-parsley-trigger"=>"change", required:true
+                  
+                  .row
+                    .col-md-12.col-sm-12
+                      .form-group
+                        = f.label :first_name, "First Name", class: :"control-label"
+                        = f.text_field :first_name, required: true, :"data-parsley-trigger"=>"change", class: :"form-control input-sm"
+
+                  .row
+                    .col-md-12.col-sm-12
+                      .form-group
+                        = f.label :last_name, "Last Name", class: :"control-label"
+                        = f.text_field :last_name, required: true, :"data-parsley-trigger"=>"change", class: :"form-control input-sm"
+
+                  %hr{style: "margin:0 0 5px 0"}/
+
+              .card__footer
+                .row{style: "margin-left:0;margin-right:0"}
+                  = f.submit "Save Changes", class: :"btn btn-primary ajax-button update-user"
+
+
+:javascript
+  new MyApp.spinner($("#right_main_content"), $(".edit-user"), "submit");
+
+  $(".edit-user").on("ajax:success", function(event, data, status, xhr) {
+    $(".spinner").remove()
+    if (data.success) {
+      $("#popup_modal_title").text(data.success.msg)
+      $("#popup_modal_box .message").html("<p>User <strong class='text_blue'>"+ data.success.name + "</strong> has been successfully updated</p>");
+      $("#popup_modal_box").modal("show")
+    } else {
+      var element_id = data.failure.element_id
+      $("#"+ element_id).parent().parent().addClass("has-error")
+      error = "<span class='help-block'><strong class='text_black'>"+ data.failure.msg + "</strong></span>"
+      $("#"+ element_id).parent().append(error)
+    }
+  })
+
+  $(function() {
+    $(".parsley-form").parsley("validate")
+    $.listen('parsley:field:error', function(){
+        $(".spinner").remove()
+    });
+  })

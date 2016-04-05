@@ -1,0 +1,22 @@
+.row
+  .col-md-6.col-md-offset-3
+    %h2 Confirm new password
+
+    .col-md-12.col-sm-12{style: "padding-left: 0;"}
+      = form_for(resource, as: resource_name, url: password_path(resource_name), html:{method: :put, class: :"form-vertical parsley-form"}) do |f|
+        = f.hidden_field :reset_password_token
+        %p= resource.errors.full_messages.first
+
+        .form-group
+          = f.label :password, "New password"
+          = f.password_field :password, autofocus: true, class: :"form-control input-lg", placeholder: "Minimum 6 chars, letters and numbers", required:true, :"data-parsley-minlength"=>"6"
+        .form-group
+          = f.label :password_confirmation, "Confirmation your new password"
+          = f.password_field :password_confirmation, class: :"form-control input-lg", placeholder: "Minimum 6 chars, letters and numbers", required:true, :"data-parsley-minlength"=>"6"
+
+        .form-actions
+          = f.submit "Change my password", class: :"btn btn-warning input-lg"
+
+
+:javascript
+  $(".parsley-form").parsley("validate");

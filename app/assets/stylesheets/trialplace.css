@@ -1,0 +1,239 @@
+.btn_dark {
+	background-color: #333 !important;
+	border: none;
+	border-radius: 0px;
+}
+
+.has-error .help-block, .has-error .control-label {
+	color:#000 !important;
+}
+
+#nav{
+	-webkit-transform:translateX(-321px);
+	-ms-transform:translateX(-321px);
+	-moz-transform:translateX(-321px);
+	-o-transform:translateX(-321px);
+}
+
+.nav-open #nav {
+ 	-webkit-transform:translateX(0px);
+	-ms-transform:translateX(0px);
+	-moz-transform:translateX(0px);
+	-o-transform:translateX(0px);
+}
+
+@media (max-width: 768px) {
+  #patient_pills_dropmenu ul li{
+	  display: table-cell !important;
+	  float: none !important;
+	  width:1%;
+  }
+  
+  #patient_pills_dropmenu ul li a{
+	  margin-bottom: 0;
+  }
+}
+
+@media (max-width: 991px) {
+
+
+.phone_navigation{
+	  display:inline;
+	  float:right;
+	  margin-bottom: 0;
+}
+
+.phone_navigation li{
+	float:left;
+	margin-right:20px;
+	list-style:none;
+}
+
+}
+
+@media (min-width:992px){
+.semi-open #content {
+	padding-left: 76px;
+}
+.phone_navigation{
+	  display:none;
+}	
+}
+#dropLogin {
+	height: 34px !important;
+	line-height: 34px !important;
+}
+
+.dd-bar--condensed .dropdown {
+	margin-top:12px !important;
+	margin-right: 20px !important;
+}
+
+.dd-bar__navigation .dropdown-menu {
+	left: inherit;
+	right: 0;
+	top: 40px;
+}
+
+.loginBox {
+	padding: 15px 20px 20px 20px;
+	margin: -5px 0;
+	background: #fff;
+}
+
+.loginBox input[type="text"], .loginBox input[type="password"] {
+	width: 220px;
+	margin-bottom: 8px;
+	padding: 3px 5px;
+}
+
+.form-group {
+ margin-bottom: 10px !important; 
+}
+
+.well{
+	background-color:#fff !important;
+}
+
+
+.sorting {
+	cursor: pointer;
+	background: url(../img/sort_both.png) no-repeat center right;
+}
+
+.sorting_asc {
+	cursor: pointer;
+	background: url(../img/sort_asc.png) no-repeat center right;
+}
+
+.sorting_desc {
+	cursor: pointer;
+	background: url(../img/sort_desc.png) no-repeat center right;
+}
+
+#trial_name a{
+	color:#F06D22;
+}
+
+#site_name{
+	color:#000;
+	font-weight:bold;
+}
+.control-label {
+	color:#999999;
+}
+
+.wid200{
+	width:200px;
+}
+
+.wid180 { 
+	width:180px;
+}
+
+.wid150 {
+	width:150px;
+}
+
+.wid120 {
+	width:120px;
+}
+
+.wid100 {
+	width:100px;
+}
+
+.wid80 {
+	width:80px;
+}
+
+.wid50 {
+	width:50px;
+}
+
+#telephone::-webkit-input-placeholder {
+	color: #CCCCCC;
+}
+#telephone::-moz-placeholder {
+	color: #CCCCCC;
+}
+#telephone:-moz-placeholder {   /* Older versions of Firefox */
+	color: #CCCCCC;
+}
+#telephone:-ms-input-placeholder { 
+	color: #CCCCCC;
+}
+
+#page_description{
+	line-height:72px;
+	float:right;
+	display:inline;
+	margin-right: 20px;
+}
+
+.input-check {
+	top:-3px;
+	position:relative;
+}
+
+#tipalti_frame{
+	border:none;
+	padding:20px;
+}
+
+#nav .good-burger{
+	width:48px;
+}
+
+#nav .dd-drawer__toggle {
+	margin: 0 0 0 -48px;
+	position: absolute;
+	left: 100%;
+	-webkit-transition: -webkit-transform 0.25s ease;
+	transition: transform 0.25s ease;
+}
+
+#nav .dd-drawer__toggle--open:before{
+	content : "\2190";
+}
+
+#nav .dd-drawer__toggle--collapse:before{
+	content: "\2192";
+}
+
+
+#nav .avatar {
+	vertical-align: middle;
+	display: inline-block;
+	margin-right: 14px;
+	margin-right: 0.875rem;
+}
+.avatar--placeholder {
+	line-height: 22.652px;
+	line-height: 1.41575rem;
+	font-size: 11.3319770304px;
+	font-size: 0.7082485644rem;
+	min-width: 22.652px;
+	min-width: 1.41575rem;
+	background: #ccc;
+	display: inline-block;
+	text-align: center;
+	border-radius: 50%;
+}
+
+.nav-open #nav{
+	width:320px;
+}
+
+.semi-open #nav{
+	width:76px;
+}
+
+.semi-open .dd-menu #nav__menu > ul li.active > a:after
+{
+	content: "";
+}
+
+.form-control {
+	background:#B8D5F0;
+}

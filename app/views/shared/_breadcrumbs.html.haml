@@ -1,0 +1,9 @@
+.container-fluid
+  .row
+    .col-md-12
+      %h1
+        %ol#breadcrumbs.breadcrumb.hidden-xs
+          = render 'shared/breadcrumb_dashboard'
+
+        %ol#breadcrumbs_xs.breadcrumb.visible-xs
+          = render 'shared/breadcrumb_dashboard_xs'

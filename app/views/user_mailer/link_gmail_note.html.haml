@@ -1,0 +1,25 @@
+!!!
+%html
+  %head
+    %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+  %body      
+    .mail-body
+      %section
+        .container-fluid
+          .row
+            .col-md-12{style: "padding:0"}
+              #overlay
+
+              .card.card--padded.card--collapsible
+                .card__header
+                  .card__header__content
+
+                    %label Please connect your gmail to get analysis results of the next week events.
+        
+    %p= "The #{GeventAnalysis::Application::CONSTS[:app_name]} Team"
+    %p= link_to GeventAnalysis::Application::CONSTS[:app_host], GeventAnalysis::Application::CONSTS[:app_host]
+
+
+:javascript
+  elem=document.getElementById("message_headers");
+  elem.remove();

@@ -1,0 +1,27 @@
+/ Notification Dialog
+#popup_modal_box.modal.fade{role: :dialog, tabindex: "-1", aria:{hidden: true, labelledby: :popup_modal_title}}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{type: :button, aria:{hidden: true}, data:{dismiss: :modal}} ×
+        %h4#popup_modal_title.modal-title
+      .modal-body
+        %p.message
+      .modal-footer
+        %button.btn.btn-default{type: :button, data:{dismiss: :modal}} OK
+
+/ Confirmation Dialog
+#confirm_modal_box.modal.fade{role: :dialog, tabindex: "-1", aria:{hidden: true, labelledby: :popup_modal_title}}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{type: :button, aria:{hidden: true}, data:{dismiss: :modal}} ×
+        %h4#popup_modal_title.modal-title Confirm
+      .modal-body
+        %p.message
+      .modal-footer
+        %button#yes_btn.btn.btn-primary{type: :button} Yes
+        %button.btn.btn-default{type: :button, data:{dismiss: :modal}} No
+
+
+#spinner

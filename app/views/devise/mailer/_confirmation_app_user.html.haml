@@ -1,0 +1,2 @@
+%p= @body.html_safe
+%p= link_to confirmation_url(@resource, confirmation_token: @token), confirmation_url(@resource, confirmation_token: @token)

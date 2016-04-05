@@ -1,0 +1,35 @@
+%header{id: "header"}
+  %nav{class: "dd-bar dd-bar--condensed [ clearfix ]"}
+    - unless params[:controller] == "home"  &&  params[:action] == "index"
+      - if params[:controller].include?("dashboard") && params[:type] != "new_user" && params[:action] != "authorization"
+        = link_to("<i class='fa fa-bars'></i><span class='hidden'> Menu</span>".html_safe, "#", class: "dd-bar__menu", style: "margin-right:0;", data: {toggle: '#nav'})
+
+    - if current_user.present?
+      %ul.phone_navigation{style: "padding-left:0;"}
+        %li
+          = link_to("<i class='fa fa-cog fa-fw'></i>".html_safe, "#", style: "color:white;")
+        %li
+          = link_to("<i class='fa fa-sign-out fa-fw'></i>".html_safe, destroy_user_session_path, :method => :delete, style: "color:#fff;")
+
+    .dd-bar__navigation
+      - if current_user.present?
+        %ul.dd-bar__navigation__list
+          %li
+            = link_to("<i class='fa fa-cog fa-fw'></i>#{current_user.name.blank? ? current_user.email : current_user.name}".html_safe, "#")
+          %li
+            = link_to("<i class='fa fa-sign-out fa-fw'></i>Sign out".html_safe, destroy_user_session_path, :method => :delete)
+      - else
+        .dropdown
+          %a#dropLogin.dropdown-toggle{"data-toggle" => "dropdown", :href => "#", :role => "button"} Dashboard >>
+          %ul.dropdown-menu{"aria-labelledby" => "dropLogin", :role => "menu"}
+            %li{:role => "presentation"}
+              = form_for(resource, as: resource_name, url: session_path(resource_name), html: {method: :post, id: "dropdown_login_form", autocomplete: "off"}, format: :json, remote: false) do |f|
+                / fake fields are a workaround for chrome autofill getting the wrong fields
+                = email_field_tag :fake_email, nil, style: "display:none", required: false           
+                = password_field_tag :fake_password, nil, style: "display:none", required: false
+                .loginBox
+                  %h4#dropdown_login_title= "#{GeventAnalysis::Application::CONSTS[:app_name]} Account"
+                  = f.text_field :email, class:"dropdown_login_field", :placeholder => "test@test.com"
+                  = f.password_field :password, class:"dropdown_login_field", :placeholder => "password"
+                  = f.submit "Submit", class: "btn btn-primary", id:"dropdown_login"
+                  = link_to "forgot password?", new_password_path(resource_name)

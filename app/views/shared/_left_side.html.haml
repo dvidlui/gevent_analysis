@@ -1,0 +1,11 @@
+#nav__menu
+  %ul.list-unstyled
+    - if params[:controller].include?("dashboard/users") && params[:action] == "profile" 
+      = render "shared/left_side_profile"
+
+    - elsif params[:controller] == "dashboard"
+      = render "shared/left_side_dashboard"
+
+    - elsif params[:controller] == "dashboard/users" && params[:action] == "edit"
+      %li{style: "border-bottom:1px solid rgba(147, 181, 223, 0.1)"}
+        = link_to "<i class='fa fa-long-arrow-left fa-fw dd-menu__icon'></i>Back".html_safe, nil, class: :"event-button", id: "back"

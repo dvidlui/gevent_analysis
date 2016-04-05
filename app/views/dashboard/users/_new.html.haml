@@ -1,0 +1,18 @@
+.modal-dialog
+  .modal-content
+    = form_for(@user, url: dashboard_users_path, remote: true, html:{class: :"form-horizontal parsley-form invite-form"}) do |f|
+      .modal-header
+        %button.close{type: :"button", aria:{hidden: true}, data:{dismiss: :modal}} ×
+        %h4.modal-title#data_title Add User
+
+      .modal-body
+        .form-group
+          = f.label :email, "Email Address ", class: :"col-sm-4 control-label"
+          .col-sm-6
+            = f.email_field :email, placeholder: "e.g. new.user@example.com", required: true, :"data-parsley-trigger"=>"change", class: :"form-control input-sm"
+
+      .modal-footer
+        = button_tag(type: :submit, class: :"btn btn-primary") do
+          Save
+          %i.fa.fa-angle-double-right
+        %button.btn.btn-default{type: :button, data:{dismiss: :modal}} Cancel

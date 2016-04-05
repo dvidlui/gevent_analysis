@@ -1,0 +1,129 @@
+.breadcrumb, #breadcrumbs_xs{
+  background-color: transparent;
+  li {
+    font-family: "Roboto Slab",Georgia,"Times New Roman",Times,serif;
+  }
+}
+
+#breadcrumbs {
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  .active {
+    color: #666;
+  }
+}
+
+#breadcrumbs_xs {
+  background-color: transparent;
+  padding: 0;
+  margin: -10px 0px 5px 0px;
+  height: 15px;
+  .active {
+    color: #666;
+  }
+}
+
+.container-full {
+  width: 100%;
+}
+.dashboard-page {
+  .details-page {
+    label {
+      font-weight: normal;
+    }
+    textarea {
+      resize: none;
+    }
+    .input-lg {
+      border-radius: 6px;
+      font-size: 18px;
+      line-height: 1.33;
+      padding: 10px 16px;
+    }
+  }
+}
+
+.left-side {
+  float: left;
+  width: 220px;
+  padding: 0px 15px;
+  position: relative;
+}
+
+.main-content {
+  overflow: hidden;
+  padding: 0px 15px;
+}
+
+@media (min-width: 768px) and (max-width: 1050px) {
+  .transactiontab_block .col-2, .transactiontab_block .col-3 {
+    padding: 0px 15px;
+  }
+}
+
+@media (max-width: 767px) {
+  .left-side {
+    width: auto;
+    float: none;
+  }
+  .transactiontab_block .col-2, .transactiontab_block .col-3 {
+    padding: 0px 15px;
+  }
+}
+
+@media (max-width:480px) {
+  body {
+    #main {
+      .container {
+        padding-left: 0px;
+        padding-right: 0px;
+      }
+    }
+  }
+  .transactiontab_block .input-group {
+      margin-bottom:5px;
+  }
+}
+
+@media (max-width: 979px) {
+  #main {
+    .container {
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+  }
+  .dashboard {
+    .dashboard-page {
+      padding: 0px;
+    }
+  }
+  .bg_skyDark {
+    .container {
+      width: 100%;
+    }
+  }
+  .dashboard-page {
+    width: 100%;
+  }
+}
+
+.finance-box {
+  border: 2px solid #7e7e7e;
+  thead > tr > td, tbody > tr > td, tfoot > tr > td {
+    border: 0;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    h3 {
+      margin-top: 10px;
+      display: inline;
+    }
+    h4 {
+      display: inline;
+    }
+  }
+}
+
+td > p {
+  margin-bottom: 0px;
+}
